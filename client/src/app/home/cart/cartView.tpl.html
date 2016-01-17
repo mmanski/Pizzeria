@@ -1,0 +1,10 @@
+<div class="cart-view" ng-form="cart.viewForm">
+	<ul>
+		<li ng-repeat="item in cart.items">{{item.name}} 
+			x <input name ="qty{{$index}}" type="number" ng-model="item.quantity" ng-change="update()" min="1" max="{{cart.spaceLeft + item.quantity}}">
+			<button ng-click="delete(item)">Usuń</button>
+		</li>
+	</ul>
+	<h3>Łącznie {{cart.price || 0}} PLN</h3>
+	<button ng-disabled="!cart.viewForm.$valid" ng-click="order()" class="pure-button">Złóż zamówienie</button>
+</div>

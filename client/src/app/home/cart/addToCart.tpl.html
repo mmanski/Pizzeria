@@ -1,0 +1,20 @@
+<div ng-form name="cartAdditionForm">
+	<h2>Dodaj do koszyka</h2>
+	<h4>Pizza {{selectedItem.name}}</h4>
+	<h6>Składniki:  <span class='pure ng' ng-repeat="ingredient in selectedItem.ingredients"> {{ingredient}} {{$last ? '' : ($index==Users.length-2) ? ' and ' : ', '}}</span></h6>
+	<h4>Cena {{price}}</h4>
+	<label for="quantity">Ilość: 
+		<input name ="quantity" class="pure-input-1" type="number" ng-maxlength="2" min="1" max="20" ng-model="cart.quantity" ng-change="recalculatePrice()" required>
+	</label>
+	<div role="alert">
+		<span class="error" ng-show="cartAdditionForm.quantity.$error.max">
+			{{cartAdditionForm.quantity.$error.max.message|| "Zbyt duża liczba! W celu złożenia dużego zamówienia, prosimy skontaktować się telefonicznie." }} </span>
+		<span class="error" ng-show="cartAdditionForm.quantity.$error.min">
+			Nieprawidłowa liczba! </span>
+	</div>
+	<br/>
+	<span>
+		<button class="pure-button" ng-click="addItemsToCart()" ng-disabled="cartAdditionForm.quantity.$error.max">Kontynnuj zakupy</button>    
+		<button class="pure-button" ng-disabled="cartAdditionForm.quantity.$error.max">Płacę i zamawiam</button>
+	</span>
+</div>

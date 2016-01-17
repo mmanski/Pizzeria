@@ -1,0 +1,17 @@
+<div>
+	<table class="pure-table-horizontal pure-table-striped centered">
+		<tr ng-repeat="item in menu">
+			<td>
+				<h3>{{item.name}}</h3>
+				<span>Składniki: <span class='pure ng' ng-repeat="ingredient in item.ingredients"> {{ingredient}} {{$last ? '' : ($index==Users.length-2) ? ' and ' : ', '}}</span></span>	
+			</td>
+			<td>
+				<span>{{item.price.toFixed(2)}} PLN</span>
+			</td>
+			<td>
+				<button ng-click="addToCart(item)" class="pure-button">Dodaj do koszyka</button>
+			</td>
+		</tr>
+	</table>
+</div>
+

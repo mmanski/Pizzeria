@@ -1,0 +1,9 @@
+<div class="pure-menu pure-menu-open pure-menu-horizontal">
+	<a class="pure-menu-heading" href="">Pizzeria <span>beta</span></a>
+	<ul>
+		<li ui-sref-active="pure-menu-selected"><a href ui-sref="root.home">{{ 'menu' | uppercase }}</a>
+		</li>
+		<li ui-sref active="pure-menu-selected" ng-click="openCart()"><a href="#">Koszyk: {{items}} produktów za: {{price}} PLN</a>
+		</li>
+	</ul>
+</div>
